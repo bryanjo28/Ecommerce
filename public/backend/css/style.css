@@ -24039,3 +24039,7 @@ img.away, img.busy, img.offline, img.online {
   z-index: -1; }
 
 /*# sourceMappingURL=style.css.map */
+
+.sidebar .side-menu nav .nav > li > .mega-menu {
+  min-width: 100%!important;
+}

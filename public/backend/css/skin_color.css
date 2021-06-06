@@ -879,3 +879,14 @@ body.dark-skin {
     color: #ffffff;
 }
 /*# sourceMappingURL=skin_color.css.map */
+.sidebar .side-menu nav .nav > li > .mega-menu {
+  min-width: 100%!important;
+}
+
+.text-black {
+  color: black!important;
+}
+
+.fw-bold {
+  font-weight: bold;
+}

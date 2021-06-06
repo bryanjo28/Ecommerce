@@ -25,14 +25,14 @@
 		    <li class="{{($route == 'dashboard')? 'active':''}}">
           <a href="{{url('admin/dashboard')}}">
             <i data-feather="pie-chart"></i>
-		    	<span>Dashboard</span>
+		    	<span class="text-black fw-bold">Dashboard</span>
           </a>
         </li>  
 		
         <li class="treeview {{($prefix == '/brand')? 'active':''}}">
           <a href="#">
             <i data-feather="message-circle"></i>
-            <span>Brands</span>
+            <span class="text-black fw-bold">Brands</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -45,7 +45,7 @@
 		  
         <li class="treeview {{($prefix == '/category')? 'active':''}}" >
           <a href="#">
-            <i data-feather="mail"></i> <span>Category</span>
+            <i data-feather="mail"></i> <span class="text-black fw-bold">Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -56,23 +56,34 @@
           </ul>
         </li>
 		
-        <li class="treeview">
+        <li class="treeview {{($prefix == '/product')? 'active':''}}">
           <a href="#">
             <i data-feather="file"></i>
-            <span>Pages</span>
+            <span class="text-black fw-bold">Products</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="profile.html"><i class="ti-more"></i>Profile</a></li>
-            <li><a href="invoice.html"><i class="ti-more"></i>Invoice</a></li>
-            <li><a href="gallery.html"><i class="ti-more"></i>Gallery</a></li>
-            <li><a href="faq.html"><i class="ti-more"></i>FAQs</a></li>
-            <li><a href="timeline.html"><i class="ti-more"></i>Timeline</a></li>
+            <li class="{{($route == 'add-product')? 'active':''}}"><a href="{{route('add-product')}}"><i class="ti-more"></i>Add Products</a></li>
+            <li class="{{($route == 'manage-product')? 'active':''}}"><a href="{{route('manage-product')}}"><i class="ti-more"></i>Manage Products</a></li>
+            
           </ul>
         </li> 		  
-		 
+        
+        <li class="treeview {{($prefix == '/slider')? 'active':''}}">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span class="text-black fw-bold">Slider</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{($route == 'manage-slider')? 'active':''}}"><a href="{{route('manage-slider')}}"><i class="ti-more"></i>Manage Slider</a></li>
+            
+          </ul>
+        </li> 
         <li class="header nav-small-cap">User Interface</li>
 		  
         <li class="treeview">
