@@ -1304,8 +1304,7 @@ header{background:#157ed2}
 
 .top-cart-row .dropdown-cart .lnk-cart {
   padding: 0px;
-      background: #006cb4;
-    border: 1px solid #24609c;
+  border: 1px solid #24609c;
   border-radius: 3px;
   display: inline-block;
   color: #fff;
@@ -2612,7 +2611,9 @@ age-container #owl-main .owl-next {
 }
 
 .info-boxes-inner {
-  background-color: #0f6cb2;
+  background: linear-gradient(
+    90deg
+    , rgba(233,54,0,1) 0%, rgba(250,149,0,1) 100%, rgba(226,221,215,1) 100%);
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
 }
   
@@ -5863,12 +5864,9 @@ z-index:10000
 	}
 
   header {
-    background: linear-gradient(
-      -180deg
-      ,#f53d2d,#f63);
+    background: linear-gradient(90deg, rgba(233,54,0,1) 0%, rgba(250,149,0,1) 100%, rgba(226,221,215,1) 100%);
 }
 
 .top-cart-row .dropdown-cart .lnk-cart {
-  background: orange!important;
   border: 1px solid white!important;
 }

@@ -52,8 +52,6 @@ class ProductController extends Controller
 
             'hot_deals' => $request->hot_deals,
             'featured' => $request->featured,
-            'special_offer' => $request->special_offer,
-            'special_deals' => $request->special_deals,
 
             'product_thumbnail' => $save_url,
       	    'status' => 1,
@@ -64,7 +62,7 @@ class ProductController extends Controller
             
         $images = $request->file('multi_img');
         foreach( $images as $img)    {
-            $make_name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
             Image::make($img)->resize(917,1000)->save('upload/products/multi-image/'.$make_name);
             $uploadPath = 'upload/products/multi-image/'.$make_name;
 
@@ -128,8 +126,6 @@ class ProductController extends Controller
 
             'hot_deals' => $request->hot_deals,
             'featured' => $request->featured,
-            'special_offer' => $request->special_offer,
-            'special_deals' => $request->special_deals,
 
       	    'status' => 1,
             'created_at' => Carbon::now(),   
@@ -246,4 +242,6 @@ class ProductController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+   
 }

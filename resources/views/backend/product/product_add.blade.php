@@ -264,20 +264,6 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<div class="controls">
-												<fieldset>
-													<input type="checkbox" id="checkbox_4" name="special_offer" value="1">
-													<label for="checkbox_4">Special Offer</label>
-												</fieldset>
-												<fieldset>
-													<input type="checkbox" id="checkbox_5" name="special_deals" value="1">
-													<label for="checkbox_5">Special Deals</label>
-												</fieldset>
-											</div>
-										</div>
-									</div>
 								</div>
 
 								<input type="submit" class="btn btn-rounded btn-info mb-5" value="Add Product">

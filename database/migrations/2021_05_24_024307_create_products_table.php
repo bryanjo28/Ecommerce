@@ -35,8 +35,6 @@ class CreateProductsTable extends Migration
             $table->string('product_thumbnail');
             $table->integer('hot_deals')->nullable();
             $table->integer('featured')->nullable();
-            $table->integer('special_offer')->nullable();
-            $table->integer('special_deals')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });
