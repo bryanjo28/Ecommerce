@@ -68,7 +68,7 @@
 							</div><!-- /.gallery-holder -->        			
 						<div class='col-sm-6 col-md-7 product-info-block'>
 							<div class="product-info">
-								<h1 class="name">@if(session()->get('language') == 'indo') {{$product->product_name_id}} 
+								<h1 class="name" id="pname">@if(session()->get('language') == 'indo') {{$product->product_name_id}} 
 									@else {{$product->product_name_en}} @endif
 								</h1>
 								<div class="rating-reviews m-t-20">
@@ -151,13 +151,13 @@
 														<div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
 														<div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
 													</div>
-													<input type="text" value="1">
+													<input type="text" id="qty" value="1" min="1">
 													</div>
 												</div>
 										</div>
-
+										<input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
 										<div class="col-sm-7">
-											<a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+											<button type="submit" onclick="addToCart()" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
 										</div>
 
 										

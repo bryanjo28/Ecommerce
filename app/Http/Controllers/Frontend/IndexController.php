@@ -118,5 +118,16 @@ class IndexController extends Controller
 		return view('frontend.product.subcategory_view',compact('products','categories'));
 
 	}
+	/// Product View With Ajax
+	public function ProductViewAjax($id){
+		$product = Product::with('category','brand')->findOrFail($id);
+
+
+		return response()->json(array(
+			'product' => $product,
+
+		));
+
+	} // end method
 
 }
