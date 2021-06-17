@@ -10,7 +10,7 @@
               <li><a href="#"><i class="icon fa fa-user"></i>
                 @if(session()->get('language') == 'indo') Akun @else My Account @endif</a></li>
               <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-              <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+              <li><a href="{{ route('checkout') }}"><i class="icon fa fa-check"></i>Checkout</a></li>
               @auth
               <li><a href="{{route('login')}}"><i class="icon fa fa-user"></i>User Profile</a></li>      
               @else

@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CartPageController;
+use App\Http\Controllers\User\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -194,3 +195,15 @@ Route::get('/user/cart-remove/{rowId}', [CartPageController::class, 'RemoveCartP
 // My Cart Page Increment Decrement
 Route::get('/cart-increment/{rowId}', [CartPageController::class, 'CartIncrement']);
 Route::get('/cart-decrement/{rowId}', [CartPageController::class, 'CartDecrement']);
+
+
+// Frontend Coupon and Calculation Option
+Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
+Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
+Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
+
+
+ // Checkout Routes 
+ Route::get('/checkout', [CartController::class, 'CreateCheckout'])->name('checkout');
+ Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax']);
+ Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
