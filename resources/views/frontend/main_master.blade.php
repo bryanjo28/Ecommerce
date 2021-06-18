@@ -32,6 +32,7 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<script src="https://js.stripe.com/v3/"></script>
 </head>
 <body class="cnt-home">
 <!-- ============================================== HEADER ============================================== -->
@@ -423,7 +424,9 @@
 					url: "{{ url('/coupon-apply') }}",
 					success:function(data){
 						couponCalculation();
-						$('#couponField').hide();
+						if (data.validity == true) {
+							$('#couponField').hide();
+						}
 						// Start Message 
 						const Toast = Swal.mixin({
 												toast: true,
@@ -459,32 +462,34 @@
 					success:function(data){
 						if(data.total){
 							$('#couponCal').html(`<tr>
-									<th>
+									<td>
 										<div class="cart-sub-total">
-											Subtotal<span class="inner-left-md">${data.total}</span>
+											<span class="font-size-16 fw-bold">Sub Total</span><span class="inner-left-md font-size-16">Rp ${data.total}</span>
 										</div>
+										<hr>
 										<div class="cart-grand-total">
-											Grand Total<span class="inner-left-md">${data.total}</span>
+											<span class="font-size-16 fw-bold">Grand Total</span><span class="inner-left-md font-size-16">Rp ${data.total}</span>
 										</div>
-									</th>
+									</td>
 								</tr>`)
 						}else{
-							$('#couponCal').html(`<tr>
-									<th>
-										<div class="cart-sub-total">
-											Subtotal<span class="inner-left-md">${data.subtotal}</span>
+							$('#couponCal').html(`<hr><tr>
+									<td>
+										<div class="cart-sub-total pb-1">
+											<span class="font-size-16 fw-bold">Sub Total</span><span class="inner-left-md font-size-16">Rp ${data.subtotal}</span>
 										</div>
-										<div class="cart-sub-total">
-											Coupon<span class="inner-left-md">${data.coupon_name}</span>
-											<button type="submit" class="btn btn-sm btn-danger" onclick="couponRemove()"><i class="fas fa-trash-alt"></i></button>
+										<div class="cart-sub-total pb-1">
+											<span class="font-size-16 fw-bold">Coupon</span><span class="inner-left-md font-size-16">${data.coupon_name}</span>
+											<button type="submit" class="btn btn-sm btn-danger" onclick="couponRemove()"><i class="fas fa-times"></i></button>
 										</div>
-										<div class="cart-sub-total">
-											Discount<span class="inner-left-md">${data.discount_amount}</span>
+										<div class="cart-sub-total pb-1">
+											<span class="font-size-16 fw-bold">Discount</span><span class="inner-left-md font-size-16">Rp ${data.discount_amount}</span>
 										</div>
+										<hr>
 										<div class="cart-grand-total">
-											Grand Total<span class="inner-left-md">${data.total_amount}</span>
+											<span class="font-size-16 fw-bold">Grand Total</span><span class="inner-left-md font-size-16">Rp ${data.total_amount}</span>
 										</div>
-									</th>
+									</td>
 								</tr>`)
 						}
 					}

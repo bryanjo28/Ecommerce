@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -184,7 +185,8 @@ Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMi
 
 
 Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
-    
+    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
+
 });
 
 // My Cart Page All Routes

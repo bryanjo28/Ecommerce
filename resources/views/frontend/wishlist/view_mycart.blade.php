@@ -45,6 +45,7 @@ My Cart Page
 							
 					@else
 						<table class="table" id="couponField">
+							<hr>
 							<thead>
 								<tr>
 									<th>
@@ -70,7 +71,7 @@ My Cart Page
 
 				</div>
 				<div class="col-md-4 col-sm-12 cart-shopping-total">
-					<table class="table">
+					<table class="table" >
 						<thead id="couponCal">
 							
 						</thead><!-- /thead -->

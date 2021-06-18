@@ -5293,7 +5293,7 @@ age-container #owl-main .owl-next {
  width:150px
 }
 
-.cart-shopping-total {background:#f8f8f8}
+.cart-shopping-total {background:white;}
 
 .shopping-cart .shopping-cart-table table tbody tr .romove-item a {
   font-size: 18px;
@@ -5386,7 +5386,7 @@ age-container #owl-main .owl-next {
   background: rgba(0, 0, 0, 0);
 }
 .shopping-cart .cart-shopping-total table thead tr th {
-  background-color: #fafafa;
+  background-color: white;
   text-align: right;
   padding: 24px 50px;
 
@@ -5486,7 +5486,13 @@ age-container #owl-main .owl-next {
   z-index: 1;
 }
 
-.checkout-btn { background:#fdd922; color:#333; padding: 10px 18px;}
+.checkout-btn {    
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #007bff;
+  border: 1px solid; 
+  padding: 10px 18px;}
 
 
 .product-comparison .page-title {
@@ -5869,4 +5875,22 @@ z-index:10000
 
 .top-cart-row .dropdown-cart .lnk-cart {
   border: 1px solid white!important;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.thead-border {
+  border: 1px solid ;
+  border-color: orange;
+
+}
+
+.pb-1{
+  padding-bottom: 10px;
 }
