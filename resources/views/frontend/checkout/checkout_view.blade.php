@@ -153,9 +153,9 @@ Checkout Page
 
 												@else
 
-												<strong>SubTotal: </strong> ${{ $cartTotal }} <hr>
+												<strong>SubTotal: </strong> Rp {{ $cartTotal }} <hr>
 
-												<strong>Grand Total : </strong> ${{ $cartTotal }} <hr>
+												<strong>Grand Total : </strong> Rp {{ $cartTotal }} <hr>
 
 
 											@endif 
@@ -195,7 +195,7 @@ Checkout Page
 									</div>
 								</div>
 								<hr>
-								<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Payment Step</button>
+								<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Checkout</button>
 							</div>
 						</div>
 					</div> 

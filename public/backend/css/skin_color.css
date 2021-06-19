@@ -890,3 +890,13 @@ body.dark-skin {
 .fw-bold {
   font-weight: bold;
 }
+
+.theme-primary .btn-success {
+  background-color: orange!important;
+  border-color: orange!important;
+  color: #ffffff;
+}
+
+.theme-primary .border-primary {
+  border-color: orange !important;
+}

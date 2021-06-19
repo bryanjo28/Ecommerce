@@ -110,6 +110,28 @@
             <li class="{{ ($route == 'manage-district')? 'active':'' }}"><a href="{{ route('manage-district') }}"><i class="ti-more"></i>Ship Disctricts</a></li>
           </ul>
         </li> 
+
+        <li class="treeview {{($prefix == '/orders')? 'active':''}}">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span class="text-black fw-bold">Orders</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route == 'pending-orders')? 'active':'' }}"><a href="{{ route('pending-orders') }}"><i class="ti-more"></i>Pending Orders</a></li>
+            <li class="{{ ($route == 'confirm-orders')? 'active':'' }}"><a href="{{ route('confirm-orders') }}"><i class="ti-more"></i>Confirmed Orders</a></li>
+            <li class="{{ ($route == 'processing-orders')? 'active':'' }}"><a href="{{ route('processing-orders') }}"><i class="ti-more"></i>Processing Orders</a></li>
+            <li class="{{ ($route == 'picked-orders')? 'active':'' }}"><a href="{{ route('picked-orders') }}"><i class="ti-more"></i> Picked Orders</a></li>
+            <li class="{{ ($route == 'shipped-orders')? 'active':'' }}"><a href="{{ route('shipped-orders') }}"><i class="ti-more"></i> Shipped Orders</a></li>
+           <li class="{{ ($route == 'delivered-orders')? 'active':'' }}"><a href="{{ route('delivered-orders') }}"><i class="ti-more"></i> Delivered Orders</a></li>
+      
+            <li class="{{ ($route == 'cancel-orders')? 'active':'' }}"><a href="{{ route('cancel-orders') }}"><i class="ti-more"></i> Cancel Orders</a></li>
+          </ul>
+        </li> 
+
+
         <li class="header nav-small-cap">User Interface</li>
 		  
         <li class="treeview">

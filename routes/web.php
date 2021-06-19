@@ -11,13 +11,16 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\OrderController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
-use App\Http\Controllers\User\StripeController;
+use App\Http\Controllers\User\PaymentController;
+use App\Http\Controllers\User\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -133,7 +136,28 @@ Route::middleware(['auth:admin'])->group(function(){
         Route::post('/district/update/{id}', [ShippingAreaController::class, 'DistrictUpdate'])->name('district.update');
         Route::get('/district/delete/{id}', [ShippingAreaController::class, 'DistrictDelete'])->name('district.delete');
     });
-    
+
+     //Admin all Orders
+    Route::prefix('orders')->group(function(){
+        Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+        Route::get('/pending/orders/details/{order_id}', [OrderController::class, 'PendingOrdersDetails'])->name('pending.order.details');
+        Route::get('/confirm/orders', [OrderController::class, 'ConfirmOrders'])->name('confirm-orders');
+        Route::get('/processing/orders', [OrderController::class, 'ProcessingOrders'])->name('processing-orders');
+        Route::get('/picked/orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');
+        Route::get('/shipped/orders', [OrderController::class, 'ShippedOrders'])->name('shipped-orders');
+        Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
+        Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
+
+        // Update Status 
+        Route::get('/pending/confirm/{order_id}', [OrderController::class, 'PendingToConfirm'])->name('pending-confirm');
+        Route::get('/confirm/processing/{order_id}', [OrderController::class, 'ConfirmToProcessing'])->name('confirm.processing');
+        Route::get('/processing/picked/{order_id}', [OrderController::class, 'ProcessingToPicked'])->name('processing.picked');
+        Route::get('/picked/shipped/{order_id}', [OrderController::class, 'PickedToShipped'])->name('picked.shipped');
+        Route::get('/shipped/delivered/{order_id}', [OrderController::class, 'ShippedToDelivered'])->name('shipped.delivered');
+        Route::get('/cancel/orders/{order_id}', [OrderController::class, 'OrdertoCancel'])->name('orders-cancel');
+
+        Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('invoice.download');
+        });
 
 }); // end middleware admin
 
@@ -183,10 +207,17 @@ Route::get('/product/mini/cart/', [CartController::class, 'AddMiniCart']);
 Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']); 
 
 
-
+// User all Routes
 Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
-    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
-
+    Route::get('/my/orders', [UserController::class, 'MyOrders'])->name('my.orders');
+    Route::get('/order_details/{order_id}', [UserController::class, 'OrderDetails']);
+    Route::post('/stripe/order', [PaymentController::class, 'StripeOrder'])->name('stripe.order');
+    Route::post('/cash/order', [PaymentController::class, 'CashOrder'])->name('cash.order');
+    Route::get('/invoice_download/{order_id}', [UserController::class, 'InvoiceDownload']);
+    
+    Route::post('/return/order/{order_id}', [UserController::class, 'ReturnOrder'])->name('return.order');
+    Route::get('/return/order/list', [UserController::class, 'ReturnOrderList'])->name('return.order.list');
+    Route::get('/cancel/orders', [UserController::class, 'CancelOrders'])->name('cancel.orders');
 });
 
 // My Cart Page All Routes
@@ -209,3 +240,5 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
  Route::get('/checkout', [CartController::class, 'CreateCheckout'])->name('checkout');
  Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax']);
  Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
+
+ 
