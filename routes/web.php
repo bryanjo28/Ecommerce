@@ -167,6 +167,7 @@ Route::middleware(['auth:admin'])->group(function(){
         Route::get('/admin/return/approve/{order_id}', [ReturnController::class, 'ReturnRequestApprove'])->name('refund.approve');
         Route::get('/admin/all/request', [ReturnController::class, 'ReturnAllRequest'])->name('all.request');    
          });
+      
 }); // end middleware admin
 
 
@@ -219,13 +220,19 @@ Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMi
 Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
     Route::get('/my/orders', [UserController::class, 'MyOrders'])->name('my.orders');
     Route::get('/order_details/{order_id}', [UserController::class, 'OrderDetails']);
+
+    // User all Payment
     Route::post('/stripe/order', [PaymentController::class, 'StripeOrder'])->name('stripe.order');
     Route::post('/cash/order', [PaymentController::class, 'CashOrder'])->name('cash.order');
     Route::get('/invoice_download/{order_id}', [UserController::class, 'InvoiceDownload']);
-    
+
+    // User all Refund 
     Route::post('/return/order/{order_id}', [UserController::class, 'ReturnOrder'])->name('return.order');
     Route::get('/return/order/list', [UserController::class, 'ReturnOrderList'])->name('return.order.list');
     Route::get('/cancel/orders', [UserController::class, 'CancelOrders'])->name('cancel.orders');
+
+    // User all review
+    Route::post('/review/store', [UserController::class, 'ReviewStore'])->name('review.store');
 });
 
 // My Cart Page All Routes
@@ -249,4 +256,12 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
  Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax']);
  Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
 
- 
+
+ // Admin Manage All Reviews
+ Route::prefix('review')->group(function(){
+    Route::get('/pending', [UserController::class, 'PendingReview'])->name('pending.review');
+    Route::get('/admin/approve/{id}', [UserController::class, 'ReviewApprove'])->name('review.approve');
+    Route::get('/publish', [UserController::class, 'PublishReview'])->name('publish.review');
+    Route::get('/delete/{id}', [UserController::class, 'DeleteReview'])->name('delete.review');
+
+});
