@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\ReturnController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
@@ -159,6 +160,13 @@ Route::middleware(['auth:admin'])->group(function(){
         Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('invoice.download');
         });
 
+    // Admin Refund 
+     Route::prefix('return')->group(function(){
+
+        Route::get('/admin/request', [ReturnController::class, 'ReturnRequest'])->name('refund.request'); 
+        Route::get('/admin/return/approve/{order_id}', [ReturnController::class, 'ReturnRequestApprove'])->name('refund.approve');
+        Route::get('/admin/all/request', [ReturnController::class, 'ReturnAllRequest'])->name('all.request');    
+         });
 }); // end middleware admin
 
 

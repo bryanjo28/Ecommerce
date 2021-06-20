@@ -131,7 +131,19 @@
           </ul>
         </li> 
 
-
+        <li class="treeview {{ ($prefix == '/refund')?'active':'' }}  ">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span>Refund Order</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route == 'refund.request')? 'active':'' }}"><a href="{{ route('refund.request') }}"><i class="ti-more"></i>Refund Request</a></li>
+            <li class="{{ ($route == 'all.request')? 'active':'' }}"><a href="{{ route('all.request') }}"><i class="ti-more"></i>All Refund Request</a></li>
+          </ul>
+        </li> 
         <li class="header nav-small-cap">User Interface</li>
 		  
         <li class="treeview">
@@ -185,7 +197,9 @@
             <li><a href="error_404.html"><i class="ti-more"></i>Error 404</a></li>
             <li><a href="error_maintenance.html"><i class="ti-more"></i>Maintenance</a></li>	
           </ul>
-        </li> 		  		  
+        </li> 
+        
+        
 		  
       </ul>
     </section>
