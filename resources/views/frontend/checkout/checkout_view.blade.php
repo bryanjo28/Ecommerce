@@ -94,8 +94,8 @@ Checkout Page
 													</div>
 												</div> <!-- // end form group -->
 												<div class="form-group">
-													<label class="info-title" for="exampleInputEmail1"><b>Notes</b> <span>*</span></label>
-															<textarea class="form-control" cols="30" rows="5" placeholder="Notes" name="notes"></textarea>
+													<label class="info-title" for="exampleInputEmail1"><b>Alamat</b> <span class="text-danger">*</span></label>
+															<textarea class="form-control" cols="30" rows="5" placeholder="Notes" name="notes" required></textarea>
 													</div>  <!-- // end form group  -->
 											</div>	
 											<!-- already-registered-login -->		
@@ -190,7 +190,7 @@ Checkout Page
 									</div>
 								</div>
 								<hr>
-								<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Checkout</button>
+								<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Payment</button>
 							</div>
 						</div>
 					</div> 

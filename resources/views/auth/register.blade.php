@@ -97,6 +97,9 @@
 								@enderror
 						</div>
 							<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
+							<div class="text-right">
+								<p class="mt-15 mb-0 text-white">Register Sebagai Seller? <a href="{{route('view.seller')}}" class="text-info ml-5"><b>Click disini</b></a></p>
+							</div>
 					</form>
 					
 					

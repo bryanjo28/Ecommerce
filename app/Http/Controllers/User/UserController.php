@@ -78,7 +78,7 @@ class UserController extends Controller
 
     } // end method 
 
-    public function ReviewStore(Request $request){
+    public function ReviewProduct(Request $request){
 
     	$product = $request->product_id;
 

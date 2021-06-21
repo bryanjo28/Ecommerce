@@ -27,7 +27,6 @@
 					  <table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th>Image  </th>
 								<th>Name  </th>
 								<th>Email </th> 
 								<th>Access </th>
@@ -38,7 +37,6 @@
 						<tbody>
 							@foreach($adminuser as $item)
 							<tr>
-								<td> <img src="{{ asset($item->profile_photo_path) }}" style="width: 50px; height: 50px;">  </td>
 								<td> {{ $item->name }}  </td>
 								<td> {{ $item->email  }}  </td>
 

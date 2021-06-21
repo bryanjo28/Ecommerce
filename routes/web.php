@@ -158,6 +158,7 @@ Route::middleware(['auth:admin'])->group(function(){
         Route::get('/shipped/delivered/{order_id}', [OrderController::class, 'ShippedToDelivered'])->name('shipped.delivered');
         Route::get('/cancel/orders/{order_id}', [OrderController::class, 'OrdertoCancel'])->name('orders-cancel');
 
+        Route::get('/delete/orders/{order_id}', [OrderController::class, 'OrderDelete'])->name('order.delete');
         Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('invoice.download');
         });
 
@@ -233,7 +234,7 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
     Route::get('/cancel/orders', [UserController::class, 'CancelOrders'])->name('cancel.orders');
 
     // User all review
-    Route::post('/review/store', [UserController::class, 'ReviewStore'])->name('review.store');
+    Route::post('/review/store', [UserController::class, 'ReviewProduct'])->name('review.store');
 
     /// Order Traking Route 
     Route::post('/order/tracking', [UserController::class, 'OrderTracking'])->name('order.tracking');
@@ -293,4 +294,10 @@ Route::prefix('adminuserrole')->group(function(){
     Route::get('/edit/{id}', [AdminUserController::class, 'SellerEdit'])->name('edit.admin.user');
     Route::post('/update', [AdminUserController::class, 'SellerUpdate'])->name('admin.user.update');
     Route::get('/delete/{id}', [AdminUserController::class, 'SellerDelete'])->name('delete.admin.user');
+
+    });
+
+Route::prefix('seller')->group(function(){
+        Route::get('/register', [AdminUserController::class, 'ViewSellerRegister'])->name('view.seller');
+        Route::post('/store', [AdminUserController::class, 'AdminSellerStore'])->name('admin.seller.store');
     });

@@ -20,10 +20,6 @@
 				<div class="col-md-6 col-sm-6 sign-in">
 					<h4 class="">Sign in</h4>
 					<p class="">Hello, Welcome to your account.</p>
-					<div class="social-sign-in outer-top-xs">
-						<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
-						<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
-					</div>
 					<form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
 						@csrf
 						<div class="form-group">
@@ -107,6 +103,9 @@
 								@enderror
 						</div>
 							<button type="submit" class="btn-upper btn btn-primary">Sign Up</button>
+							<div class="text-right">
+								<p class="mt-15 mb-0 text-white">Register Sebagai Seller? <a href="{{route('view.seller')}}" class="text-info ml-5"><b>Click disini</b></a></p>
+							</div>
 					</form>
 					
 					
@@ -115,7 +114,6 @@
 		</div><!-- /.sigin-in-->
 
 		
-    @include('frontend.body.brands')
 	</div><!-- /.container -->
 </div>
 <!-- /.body-content -->

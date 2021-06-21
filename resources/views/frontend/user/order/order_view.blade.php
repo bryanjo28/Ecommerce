@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
     
-<div class="body-content">
+<div class="body-content" style="padding-top: 20px;">
 	<div class="container">
 			<div class="row">
 				@include('frontend.common.user_sidebar')

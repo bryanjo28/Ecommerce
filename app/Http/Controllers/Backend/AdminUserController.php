@@ -88,34 +88,34 @@ class AdminUserController extends Controller
     	$save_url = 'upload/admin_images/'.$name_gen;
 
 
-	Admin::findOrFail($admin_id)->update([
-		'name' => $request->name,
-		'email' => $request->email,
-		'phone' => $request->phone,
-		'brand' => $request->brand,
-		'category' => $request->category,
-		'product' => $request->product,
-		'slider' => $request->slider,
-		'coupons' => $request->coupons,
+      Admin::findOrFail($admin_id)->update([
+      'name' => $request->name,
+      'email' => $request->email,
+      'phone' => $request->phone,
+      'brand' => $request->brand,
+      'category' => $request->category,
+      'product' => $request->product,
+      'slider' => $request->slider,
+      'coupons' => $request->coupons,
 
-		'shipping' => $request->shipping,
-		'orders' => $request->orders,
-		'refund' => $request->refund,
-		'review' => $request->review,
+      'shipping' => $request->shipping,
+      'orders' => $request->orders,
+      'refund' => $request->refund,
+      'review' => $request->review,
 
-		'stock' => $request->stock,
-		'alluser' => $request->alluser,
-		'adminuserrole' => $request->adminuserrole,
-		'type' => 2,
-		'profile_photo_path' => $save_url,
-		'created_at' => Carbon::now(),
+      'stock' => $request->stock,
+      'alluser' => $request->alluser,
+      'adminuserrole' => $request->adminuserrole,
+      'type' => 2,
+      'profile_photo_path' => $save_url,
+      'created_at' => Carbon::now(),
 
-    	]);
+        ]);
 
-	    $notification = array(
-			'message' => 'Admin User Updated Successfully',
-			'alert-type' => 'info'
-		);
+        $notification = array(
+        'message' => 'Admin User Updated Successfully',
+        'alert-type' => 'info'
+      );
 
 		return redirect()->route('all.admin.user')->with($notification);
 
@@ -172,5 +172,44 @@ class AdminUserController extends Controller
        return redirect()->back()->with($notification);
 
     } // end method 
+
+    public function ViewSellerRegister(){
+      return view('auth.seller_register');
+    }
     
+    public function AdminSellerStore(Request $request){
+     
+
+        Admin::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'brand' => $request->brand,
+            'category' => $request->category,
+            'product' => 1,
+            'slider' => $request->slider,
+            'coupons' => $request->coupons,
+
+            'shipping' => $request->shipping,
+            'orders' => 1,
+            'refund' => 1,
+            'review' => 1,
+
+            'stock' => 1,
+            'alluser' => $request->alluser,
+            'adminuserrole' => $request->adminuserrole,
+            'type' => 2,
+            'created_at' => Carbon::now(),
+
+
+            ]);
+
+            $notification = array(
+                'message' => 'Register Seller Created Successfully',
+                'alert-type' => 'success'
+            );
+
+		return redirect()->route('admin.login')->with($notification);
+    }
 }

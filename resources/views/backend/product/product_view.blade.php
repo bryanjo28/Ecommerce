@@ -58,7 +58,6 @@
 											@endif
 										</td>
 										<td>
-											<a href="{{route('product.edit', $item->id)}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Products Detail Data"><i class="fa fa-eye"></i></a>
 											<a href="{{route('product.edit', $item->id)}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit Data"><i class="fa fa-pencil"></i></a>
 											<a href="{{route('product.delete', $item->id)}}" id="delete" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Data"><i class="fa fa-trash"></i></a>
 
