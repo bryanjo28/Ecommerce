@@ -282,8 +282,10 @@ Route::prefix('stock')->group(function(){
 
 // Admin Get All User Routes 
 Route::prefix('alluser')->group(function(){
-    Route::get('/view', [AdminProfileController::class, 'UsersView'])->name('all-users');
-    
+    Route::get('/view', [AdminUserController::class, 'UsersView'])->name('all-users');
+    Route::get('/edit/{id}', [AdminUserController::class, 'UserEdit'])->name('edit.user');
+    Route::post('/update', [AdminUserController::class, 'UserUpdate'])->name('user.update');
+    Route::get('/delete/{id}', [AdminUserController::class, 'UserDelete'])->name('delete.user');
     });
 
     // Admin User Role Routes 

@@ -18,8 +18,8 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Total Seller</h3>
-					<a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Add Admin User</a>
+					<h3 class="box-title">Seller List <span class="badge badge-pill badge-danger"> {{ count($adminuser) }} </span></h3>
+					<a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Add Seller</a>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Image;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AdminUserController extends Controller
 {
@@ -25,12 +26,6 @@ class AdminUserController extends Controller
     }
 
     public function SellerStore(Request $request){
-
-
-    	$image = $request->file('profile_photo_path');
-    	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
-    	$save_url = 'upload/admin_images/'.$name_gen;
 
         Admin::insert([
             'name' => $request->name,
@@ -52,7 +47,6 @@ class AdminUserController extends Controller
             'alluser' => $request->alluser,
             'adminuserrole' => $request->adminuserrole,
             'type' => 2,
-            'profile_photo_path' => $save_url,
             'created_at' => Carbon::now(),
 
 
@@ -158,10 +152,6 @@ class AdminUserController extends Controller
 
     public function SellerDelete($id){
 
-        $adminimg = Admin::findOrFail($id);
-        $img = $adminimg->profile_photo_path;
-        unlink($img);
-
         Admin::findOrFail($id)->delete();
 
          $notification = array(
@@ -212,4 +202,51 @@ class AdminUserController extends Controller
 
 		return redirect()->route('admin.login')->with($notification);
     }
+
+    public function UsersView(){
+      $users = User::latest()->get();
+      return view('backend.user.all_user',compact('users'));
+    }
+
+    
+    public function UserEdit($id){
+
+    	$users = User::findOrFail($id);
+    	return view('backend.user.user_role_edit',compact('users'));
+
+    } // end method
+
+    public function UserUpdate(Request $request){
+      $user_id = $request->id;
+    
+     User::findOrFail($user_id)->update([
+      'name' => $request->name,
+      'email' => $request->email,
+      'phone' => $request->phone,
+
+      'created_at' => Carbon::now(),
+
+        ]);
+
+        $notification = array(
+        'message' => 'User Updated Successfully',
+        'alert-type' => 'info'
+      );
+
+		return redirect()->route('all-users')->with($notification);
+
+    } // end method
+
+    public function UserDelete($id){
+
+      User::findOrFail($id)->delete();
+
+       $notification = array(
+         'message' => 'User Deleted Successfully',
+         'alert-type' => 'info'
+     );
+
+     return redirect()->back()->with($notification);
+
+  } // end method 
 }

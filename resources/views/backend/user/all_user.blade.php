@@ -26,7 +26,7 @@
 					  <table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th>Image </th>
+								<th>Image</th>
 								<th>Name </th>
 								<th>Email</th>
 								<th>Phone</th>
@@ -43,8 +43,8 @@
 								<td>{{ $user->phone }}</td>
 
 								<td>
-									<a href=" " class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-									<a href=" " class="btn btn-danger" title="Delete Data" id="delete">
+									<a href="{{ route('edit.user',$user->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+									<a href="{{ route('delete.user',$user->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
 									<i class="fa fa-trash"></i></a>
 								</td>
 
