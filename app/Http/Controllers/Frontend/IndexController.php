@@ -12,6 +12,7 @@ use App\Models\Slider;
 use App\Models\Product;
 use App\Models\MultiImg;
 use App\Models\Brand;
+use App\Models\SubCategory;
 
 class IndexController extends Controller
 {
@@ -115,7 +116,10 @@ class IndexController extends Controller
 	public function SubCatWiseProduct($subcat_id,$slug){
 		$products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','DESC')->paginate(3);
 		$categories = Category::orderBy('category_name_en','ASC')->get();
-		return view('frontend.product.subcategory_view',compact('products','categories'));
+		
+		$breadsubcat = SubCategory::where('id',$subcat_id)->get();
+
+		return view('frontend.product.subcategory_view',compact('products','categories','breadsubcat'));
 
 	}
 	/// Product View With Ajax
@@ -130,4 +134,14 @@ class IndexController extends Controller
 
 	} // end method
 
+	
+	public function SearchProduct(Request $request){
+		$item = $request->search;
+		// echo "$item";
+        $categories = Category::orderBy('category_name_en','ASC')->get();
+		$products = Product::where('product_name_en','LIKE',"%$item%")->get();
+		return view('frontend.product.search',compact('products','categories'));
+
+
+	}
 }

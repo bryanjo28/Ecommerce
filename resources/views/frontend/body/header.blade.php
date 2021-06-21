@@ -7,10 +7,9 @@
         <div class="header-top-inner">
           <div class="cnt-account">
             <ul class="list-unstyled">
-              <li><a href="#"><i class="icon fa fa-user"></i>
-                @if(session()->get('language') == 'indo') Akun @else My Account @endif</a></li>
               <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
               <li><a href="{{ route('checkout') }}"><i class="icon fa fa-check"></i>Checkout</a></li>
+              <li><a href="" type="button" data-toggle="modal" data-target="#ordertracking"><i class="icon fa fa-check"></i>Order Tracking</a></li>
               @auth
               <li><a href="{{route('login')}}"><i class="icon fa fa-user"></i>User Profile</a></li>      
               @else
@@ -22,13 +21,7 @@
           
           <div class="cnt-block">
             <ul class="list-unstyled list-inline">
-              <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">USD</a></li>
-                  <li><a href="#">INR</a></li>
-                  <li><a href="#">GBP</a></li>
-                </ul>
-              </li>
+              
               <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">
                 @if(session()->get('language') == 'indo') Bahasa @else Language @endif
                 </span><b class="caret"></b></a>
@@ -66,7 +59,8 @@
             <!-- /.contact-row --> 
             <!-- ============================================================= SEARCH AREA ============================================================= -->
             <div class="search-area">
-              <form>
+              <form method="post" action="{{route('product.search')}}">
+                @csrf
                 <div class="control-group">
                   <ul class="categories-filter animate-dropdown">
                     <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
@@ -79,8 +73,9 @@
                       </ul>
                     </li>
                   </ul>
-                  <input class="search-field" placeholder="Search here..." />
-                  <a class="search-button" href="#" ></a> </div>
+                  <input class="search-field" name="search" placeholder="Search here..." />
+                  <button type="submit" class="search-button" href="#" ></button> 
+                </div>
               </form>
             </div>
             <!-- /.search-area --> 
@@ -137,5 +132,34 @@
    
     <!-- /.header-nav --> 
     <!-- ============================================== NAVBAR : END ============================================== --> 
-    
+    <!-- Order Traking Modal -->
+    <div class="modal fade" id="ordertracking" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Track Your Order </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form method="post" action="{{ route('order.tracking') }}">
+              @csrf
+            <div class="modal-body">
+              <label>Invoice Code</label>
+              <input type="text" name="code" required="" class="form-control" placeholder="Your Order Invoice Number">           
+            </div>
+
+            <button class="btn btn-danger" type="submit" style="margin-left: 17px;"> Track Now </button>
+
+            </form> 
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </header>

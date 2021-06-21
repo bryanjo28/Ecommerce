@@ -48,7 +48,7 @@
 										</div>
 										<div>
 											<p class="text-mute mt-20 mb-0 font-size-16">Penjualan Tahunan </p>
-												<h3 class="text-black mb-0 font-weight-500">Rp{{ number_format($year,2) }} <small class="text-danger"><i class="fa fa-caret-down"></i> Usd</small></h3>
+												<h3 class="text-black mb-0 font-weight-500">Rp{{ number_format($year,2) }} <small class="text-danger"><i class="fa fa-caret-down"></i> Idr</small></h3>
 										</div>
 								</div>
 						</div>

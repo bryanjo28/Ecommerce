@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ReturnController;
+use App\Http\Controllers\Backend\AdminUserController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
@@ -233,6 +234,9 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
 
     // User all review
     Route::post('/review/store', [UserController::class, 'ReviewStore'])->name('review.store');
+
+    /// Order Traking Route 
+    Route::post('/order/tracking', [UserController::class, 'OrderTracking'])->name('order.tracking');
 });
 
 // My Cart Page All Routes
@@ -256,6 +260,9 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
  Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'DistrictGetAjax']);
  Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
 
+/// Product Search Route 
+Route::post('/search', [IndexController::class, 'SearchProduct'])->name('product.search');
+
 
  // Admin Manage All Reviews
  Route::prefix('review')->group(function(){
@@ -265,3 +272,25 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
     Route::get('/delete/{id}', [UserController::class, 'DeleteReview'])->name('delete.review');
 
 });
+
+// Admin Manage Review Routes 
+Route::prefix('stock')->group(function(){
+    Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');  
+    
+    });
+
+// Admin Get All User Routes 
+Route::prefix('alluser')->group(function(){
+    Route::get('/view', [AdminProfileController::class, 'UsersView'])->name('all-users');
+    
+    });
+
+    // Admin User Role Routes 
+Route::prefix('adminuserrole')->group(function(){
+    Route::get('/all', [AdminUserController::class, 'SellerView'])->name('all.admin.user');
+    Route::get('/add', [AdminUserController::class, 'AddSeller'])->name('add.admin');
+    Route::post('/store', [AdminUserController::class, 'SellerStore'])->name('admin.user.store');
+    Route::get('/edit/{id}', [AdminUserController::class, 'SellerEdit'])->name('edit.admin.user');
+    Route::post('/update', [AdminUserController::class, 'SellerUpdate'])->name('admin.user.update');
+    Route::get('/delete/{id}', [AdminUserController::class, 'SellerDelete'])->name('delete.admin.user');
+    });

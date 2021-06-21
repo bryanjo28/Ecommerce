@@ -2,14 +2,13 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Tagwise Product Kulinerkita
+Search Page
 @endsection
 
 <div class="breadcrumb">
     <div class="container">
       <div class="breadcrumb-inner">
         <ul class="list-inline list-unstyled">
-          
         </ul>
       </div>
       <!-- /.breadcrumb-inner --> 
@@ -34,11 +33,10 @@ Tagwise Product Kulinerkita
              
 							  <!-- ============================================== PRODUCT TAGS: END ============================================== -->
             <!----------- Testimonials------------->
-							@include('frontend.common.testimonials')
               
               <!-- ============================================== Testimonials: END ============================================== -->
               
-              <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image"> </div>
+             
             </div>
             <!-- /.sidebar-filter --> 
           </div>
@@ -62,7 +60,7 @@ Tagwise Product Kulinerkita
               <!-- /.container-fluid --> 
             </div>
           </div>
-          
+          <h4><b>Total Search </b><span class="badge badge-danger" style="background: #FF0000;"> {{ count($products) }} </span> Items  </h4>
        
           <div class="clearfix filters-container m-t-10">
             <div class="row">
@@ -301,7 +299,6 @@ Tagwise Product Kulinerkita
               <div class="text-right">
                 <div class="pagination-container">
                   <ul class="list-inline list-unstyled">
-										{{ $products->links()  }}
                   </ul>
                   <!-- /.list-inline --> 
                 </div>

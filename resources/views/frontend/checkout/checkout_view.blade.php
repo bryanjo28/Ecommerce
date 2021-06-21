@@ -178,17 +178,12 @@ Checkout Page
 										<h4 class="unicase-checkout-title">Select Payment Method</h4>
 								</div>
 								<div class="row">	
-									<div class="col-md-4">
-										<label for="">Stripe</label> 		
+									<div class="col-md-6">
+										<label for="">Card</label> 		
 										<input type="radio" name="payment_method" value="stripe">
 										<img src="{{ asset('frontend/assets/images/payments/4.png') }}">	
 									</div>
-									<div class="col-md-4">
-										<label for="">Card</label> 		
-										<input type="radio" name="payment_method" value="card">	
-										<img src="{{ asset('frontend/assets/images/payments/3.png') }}"> 
-									</div>
-									<div class="col-md-4">
+									<div class="col-md-6">
 										<label for="">Cash</label> 		
 										<input type="radio" name="payment_method" value="cash">	
 										<img src="{{ asset('frontend/assets/images/payments/2.png') }}">  

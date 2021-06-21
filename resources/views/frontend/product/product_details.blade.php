@@ -8,9 +8,6 @@
 	<div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Clothing</a></li>
-				<li class='active'>Floral Print Buttoned</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
@@ -26,7 +23,7 @@
 					@include('frontend.common.vertical_menu')
 					<!-- /.side-menu --> 
 					<!-- ================================== TOP NAVIGATION : END ================================== --> 
-
+					@include('frontend.common.product_tags')
 					<!-- ============================================== HOT DEALS ============================================== -->
 					@include('frontend.common.hot_deals')
 					<!-- ============================================== HOT DEALS: END ============================================== -->					
@@ -147,11 +144,10 @@
 										<div class="col-sm-2">
 											<div class="cart-quantity">
 												<div class="quant-input">
-													<div class="arrows">
-														<div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-														<div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-													</div>
-													<input type="text" id="qty" value="1" min="1">
+													<div class="form-group">
+														<label for="qty">Quantity</label>
+													<input type="number" class="form-control" id="qty" value="1" min="1" >
+													</div> <!-- // end form group -->
 													</div>
 												</div>
 										</div>

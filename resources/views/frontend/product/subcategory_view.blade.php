@@ -10,7 +10,10 @@ Subcategory Product Kulinerkita
       <div class="breadcrumb-inner">
         <ul class="list-inline list-unstyled">
           <li><a href="#">Home</a></li>
-          <li class='active'>Handbags</li>
+  
+          @foreach($breadsubcat as $item)
+            <li class='active'>{{ $item->subcategory_name_en }}</li>
+          @endforeach
         </ul>
       </div>
       <!-- /.breadcrumb-inner --> 
