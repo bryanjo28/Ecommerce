@@ -9,9 +9,17 @@
             <ul class="list-unstyled">
               <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
               <li><a href="{{ route('checkout') }}"><i class="icon fa fa-check"></i>Checkout</a></li>
-              <li><a href="" type="button" data-toggle="modal" data-target="#ordertracking"><i class="icon fa fa-check"></i>Order Tracking</a></li>
               @auth
-              <li><a href="{{route('login')}}"><i class="icon fa fa-user"></i>User Profile</a></li>      
+              <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">
+                My Account
+                <ul class="dropdown-menu">
+                  
+                  <li><a href="{{route('login')}}"><span class="text-black">User Profile</span></a></li> 
+                  <li><a href="{{ route('my.orders') }}"><span class="text-black">My Order</span></a></li>
+                  <li><a href="" type="button" data-toggle="modal" data-target="#ordertracking"><span class="text-black">Order Tracking</span></a></li>
+                  <li><a href="{{ route('user.logout') }}"><span class="text-black">Logout</span></a></li>
+                </ul>
+              </li>   
               @else
               <li><a href="{{route('login')}}"><i class="icon fa fa-lock"></i>Login/Register</a></li>     
               @endauth
@@ -108,7 +116,7 @@
                     <div class="pull-right"> <span class="text">Sub Total :</span>
                       <span class='price'  id="cartSubTotal"> </span> </div>
                     <div class="clearfix"></div>
-                    <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
+                    <a href="{{route('checkout')}}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
                   <!-- /.cart-total--> 
                   
                 </li>

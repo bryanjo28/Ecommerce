@@ -5,7 +5,7 @@
     <!-- Main content -->
     <section class="content">
 			<div class="row">
-				<div class="col-xl-12">
+				<div class="col-xl-6">
 					<div class="box box-widget widget-user">
 						<!-- Add the bg color to the header using any of the bg-* classes -->
 						<div class="widget-user-header bg-black" >
@@ -14,6 +14,7 @@
 							<a href="{{route('admin.profile.edit')}}" style="float:right;" class="btn btn-rounded btn-warning">Edit Profile</a>
 
 							<h6 class="widget-user-desc" style="color: black">Seller Email: {{$adminData->email}}</h6>
+							<h6 class="widget-user-desc" style="color: black">Seller Phone: {{$adminData-> phone}}</h6>
 						</div>
 						<div class="widget-user-image">
 							<img class="rounded-circle" src="{{(!empty($adminData->profile_photo_path))? 
@@ -21,30 +22,7 @@
 						</div>
 						<div class="box-footer">
 							<div class="row">
-							<div class="col-sm-4">
-								<div class="description-block">
-								<h5 class="description-header">12K</h5>
-								<span class="description-text">FOLLOWERS</span>
-								</div>
-								<!-- /.description-block -->
-							</div>
-							<!-- /.col -->
-							<div class="col-sm-4 br-1 bl-1">
-								<div class="description-block">
-								<h5 class="description-header">550</h5>
-								<span class="description-text">FOLLOWERS</span>
-								</div>
-								<!-- /.description-block -->
-							</div>
-							<!-- /.col -->
-							<div class="col-sm-4">
-								<div class="description-block">
-								<h5 class="description-header">158</h5>
-								<span class="description-text">TWEETS</span>
-								</div>
-								<!-- /.description-block -->
-							</div>
-							<!-- /.col -->
+							
 							</div>
 							<!-- /.row -->
 						</div>

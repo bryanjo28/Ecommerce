@@ -21,6 +21,7 @@ class AdminUserController extends Controller
 
     } // end method 
 
+    // Add Seller
     public function AddSeller(){
     	return view('backend.role.admin_role_create');
     }
@@ -53,7 +54,7 @@ class AdminUserController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Admin User Created Successfully',
+                'message' => 'Seller Created Successfully',
                 'alert-type' => 'success'
             );
 
@@ -61,6 +62,7 @@ class AdminUserController extends Controller
 
     } // end method 
 
+    // Seller Edit
     public function SellerEdit($id){
 
     	$adminuser = Admin::findOrFail($id);
@@ -68,52 +70,10 @@ class AdminUserController extends Controller
 
     } // end method
     
+    // Seller Update
     public function SellerUpdate(Request $request){
 
     	$admin_id = $request->id;
-    	$old_img = $request->old_image;
-
-    	if ($request->file('profile_photo_path')) {
-
-    	unlink($old_img);
-    	$image = $request->file('profile_photo_path');
-    	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
-    	$save_url = 'upload/admin_images/'.$name_gen;
-
-
-      Admin::findOrFail($admin_id)->update([
-      'name' => $request->name,
-      'email' => $request->email,
-      'phone' => $request->phone,
-      'brand' => $request->brand,
-      'category' => $request->category,
-      'product' => $request->product,
-      'slider' => $request->slider,
-      'coupons' => $request->coupons,
-
-      'shipping' => $request->shipping,
-      'orders' => $request->orders,
-      'refund' => $request->refund,
-      'review' => $request->review,
-
-      'stock' => $request->stock,
-      'alluser' => $request->alluser,
-      'adminuserrole' => $request->adminuserrole,
-      'type' => 2,
-      'profile_photo_path' => $save_url,
-      'created_at' => Carbon::now(),
-
-        ]);
-
-        $notification = array(
-        'message' => 'Admin User Updated Successfully',
-        'alert-type' => 'info'
-      );
-
-		return redirect()->route('all.admin.user')->with($notification);
-
-    	}else{
 
     	Admin::findOrFail($admin_id)->update([
             'name' => $request->name,
@@ -146,10 +106,10 @@ class AdminUserController extends Controller
 
 		return redirect()->route('all.admin.user')->with($notification);
 
-    	} // end else 
 
     } // end method 
 
+    // Seller Delete
     public function SellerDelete($id){
 
         Admin::findOrFail($id)->delete();
@@ -163,10 +123,14 @@ class AdminUserController extends Controller
 
     } // end method 
 
+
+
+    // Seller View Register
     public function ViewSellerRegister(){
       return view('auth.seller_register');
     }
     
+    // Seller Register Store
     public function AdminSellerStore(Request $request){
      
 
@@ -203,12 +167,15 @@ class AdminUserController extends Controller
 		return redirect()->route('admin.login')->with($notification);
     }
 
+
+
+    // User View
     public function UsersView(){
       $users = User::latest()->get();
       return view('backend.user.all_user',compact('users'));
     }
 
-    
+    // User Edit
     public function UserEdit($id){
 
     	$users = User::findOrFail($id);
@@ -216,6 +183,7 @@ class AdminUserController extends Controller
 
     } // end method
 
+    //User Update
     public function UserUpdate(Request $request){
       $user_id = $request->id;
     
@@ -237,6 +205,8 @@ class AdminUserController extends Controller
 
     } // end method
 
+
+       //User Delete
     public function UserDelete($id){
 
       User::findOrFail($id)->delete();

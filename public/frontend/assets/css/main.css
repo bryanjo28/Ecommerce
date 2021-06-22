@@ -5912,3 +5912,10 @@ z-index:10000
   padding-top: 30px;
 }
 
+.text-orange {
+  color: orange;
+}
+
+.text-black {
+  color: black;
+}

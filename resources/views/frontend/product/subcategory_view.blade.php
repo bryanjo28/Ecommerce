@@ -50,21 +50,7 @@ Subcategory Product Kulinerkita
         <!-- /.sidebar -->
         <div class='col-md-9'> 
           <!-- ========================================== SECTION – HERO ========================================= -->
-          
-          <div id="category" class="category-carousel hidden-xs">
-            <div class="item">
-              <div class="image"> <img src="{{ asset('frontend/assets/images/banners/cat-banner-1.jpg') }}" alt="" class="img-responsive"> </div>
-              <div class="container-fluid">
-                <div class="caption vertical-top text-left">
-                  <div class="big-text"> Big Sale </div>
-                  <div class="excerpt hidden-sm hidden-md"> Save up to 49% off </div>
-                  <div class="excerpt-normal hidden-sm hidden-md"> Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
-                </div>
-                <!-- /.caption --> 
-              </div>
-              <!-- /.container-fluid --> 
-            </div>
-          </div>
+         
           
           <h4><b>Total Search </b><span class="badge badge-danger" style="background: #FF0000;"> {{ count($products) }} </span> Items  </h4>
           <div class="clearfix filters-container m-t-10">
@@ -254,7 +240,7 @@ Subcategory Product Kulinerkita
                                 <div class="action">
                                   <ul class="list-unstyled">
                                     <li class="add-cart-button btn-group">
-                                      <button  class="btn btn-primary icon" type="button" title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="{{ $product->id }}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
+                                      <button  class="btn btn-primary icon" type="button" title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="{{ $product->id }}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> Add to Cart</button>
                                     </li>
                                   </ul>
                                 </div>

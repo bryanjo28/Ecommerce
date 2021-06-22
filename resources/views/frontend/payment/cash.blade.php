@@ -74,7 +74,7 @@ Cash On Delivery Page
 						<div class="panel-group">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="unicase-checkout-title">Select Payment Method</h4>
+									<h4 class="unicase-checkout-title">Payment By Cash</h4>
 								</div>
 								<form action="{{ route('cash.order') }}" method="post" id="payment-form">
 									@csrf

@@ -73,6 +73,9 @@
 										</div>
 										<!-- /.col -->
 								  </div>
+									<div class="row">
+										<p class="mt-15 mb-0 text-white">Login Sebagai Seller? <a href="{{route('admin_login')}}" class="text-white ml-5"><b>Click disini</b></a></p>
+									</div>
 							</form>														
 						</div>
 					</div>

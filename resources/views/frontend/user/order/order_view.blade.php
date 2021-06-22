@@ -80,7 +80,10 @@
 											<span class="badge badge-pill badge-warning" style="background: orange;"> Delivered </span>
 
 											@if($order->return_order == 1) 
-												<span class="badge badge-pill badge-warning" style="background:red;">Return Requested </span>
+												<span class="badge badge-pill badge-warning" style="background:red;">Refund Requested </span>
+												
+													@elseif($order->return_order== 2)
+												<span class="badge badge-pill badge-warning" style="background: green;"> Refund Success </span>
 											@endif
 											@else	
 											 <span class="badge badge-pill badge-warning" style="background: #FF0000;"> Cancel </span>

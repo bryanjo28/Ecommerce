@@ -189,8 +189,6 @@ class OrderController extends Controller
 
     public function OrderDelete ($order_id){
 
-        $order= Order::findorFail($order_id);
-
         Order::findorFail($order_id)->delete();
            
         $notification = array(

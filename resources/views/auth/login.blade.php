@@ -69,11 +69,7 @@
 						<div class="form-group">
 								<label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
 								<input type="email" id="email" name="email"  class="form-control unicase-form-control text-input" id="exampleInputEmail2" >
-								@error('email')
-								<span class="invalid-feedback" role="alert">
-									<strong>{{$message}}</strong>
-								</span>
-								@enderror
+								
 						</div>
 								<div class="form-group">
 								<label class="info-title" for="exampleInputEmail1">Phone Number <span>*</span></label>

@@ -16,10 +16,9 @@
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-				<form method="post" action="{{ route('admin.user.update') }}" enctype="multipart/form-data" >
+				<form method="post" action="{{ route('admin.user.update') }}" >
 					@csrf
 					<input type="hidden" name="id" value="{{ $adminuser->id }}">	
-					<input type="hidden" name="old_image" value="{{ $adminuser->profile_photo_path }}">
 					<div class="row">
 						<div class="col-12">
 

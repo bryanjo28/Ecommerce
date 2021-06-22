@@ -16,7 +16,7 @@
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-				<form method="post" action="{{ route('admin.user.store') }}" enctype="multipart/form-data" >
+				<form method="post" action="{{ route('admin.user.store') }}" >
 					@csrf
 					<div class="row">
 						<div class="col-12">

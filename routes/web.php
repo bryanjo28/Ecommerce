@@ -36,7 +36,7 @@ use App\Http\Controllers\User\UserController;
 
 
 Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
-	Route::get('/login', [AdminController::class, 'loginForm']);
+	Route::get('/login', [AdminController::class, 'loginForm'])->name('admin_login');
 	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
 });
 
@@ -45,6 +45,7 @@ Route::middleware(['auth:admin'])->group(function(){
 
 
     Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
+        
         return view('admin.index');
     })->name('dashboard')->middleware('auth:admin');
 

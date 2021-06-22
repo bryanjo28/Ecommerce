@@ -45,8 +45,6 @@
 	</div>
 
 
-	@include('frontend.body.brands')
-
 </div>
 
 

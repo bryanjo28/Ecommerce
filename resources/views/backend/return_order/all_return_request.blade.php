@@ -47,13 +47,14 @@
 								@if($item->return_order == 1)
 									<span class="badge badge-pill badge-primary">Pending </span>
 									@elseif($item->return_order == 2)
-									<span class="badge badge-pill badge-success">Success </span>
+									<span class="badge badge-pill badge-success">Refund Success </span>
 								@endif
 
 									</td>
 
 								<td width="25%">
-									<span class="badge badge-success">Refund Success </span>
+									<a href="{{ route('order.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
+										<i class="fa fa-trash"></i></a>
 								</td>
 
 							</tr>
