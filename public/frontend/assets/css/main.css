@@ -5919,3 +5919,7 @@ z-index:10000
 .text-black {
   color: black;
 }
+
+.checked {
+  color: orange;
+}

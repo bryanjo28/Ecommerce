@@ -137,6 +137,7 @@ class IndexController extends Controller
 
 	
 	public function SearchProduct(Request $request){
+		$request -> validate(["search" => "required"]);
 		$item = $request->search;
 		// echo "$item";
         $categories = Category::orderBy('category_name_en','ASC')->get();
@@ -145,4 +146,7 @@ class IndexController extends Controller
 
 
 	}
+
+
+
 }

@@ -55,7 +55,7 @@ Checkout Page
 													
 													<div class="form-group">
 														<label class="info-title" for="exampleInputEmail1"><b>Phone </b> <span>*</span></label>
-														<input type="number" name="shipping_phone" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Phone" value="{{ Auth::user()->phone }}" required="">
+														<input type="phone" name="shipping_phone" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Phone" value="{{ Auth::user()->phone }}" required="">
 													</div>  <!-- // end form group  -->
 												
 													

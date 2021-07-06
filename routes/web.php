@@ -225,7 +225,7 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
     Route::get('/order_details/{order_id}', [UserController::class, 'OrderDetails']);
 
     // User all Payment
-    Route::post('/stripe/order', [PaymentController::class, 'StripeOrder'])->name('stripe.order');
+    Route::post('/stripe/order', [PaymentController::class, 'PaymentOrder'])->name('stripe.order');
     Route::post('/cash/order', [PaymentController::class, 'CashOrder'])->name('cash.order');
     Route::get('/invoice_download/{order_id}', [UserController::class, 'InvoiceDownload']);
 

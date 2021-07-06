@@ -17,7 +17,7 @@ use App\Mail\OrderMail;
 class PaymentController extends Controller
 {
     //
-    public function StripeOrder(Request $request){
+    public function PaymentOrder(Request $request){
         
     	if (Session::has('coupon')) {
     		$total_amount = Session::get('coupon')['total_amount'];

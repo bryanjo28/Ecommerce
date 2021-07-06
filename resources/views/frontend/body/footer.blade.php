@@ -13,7 +13,7 @@
                 <li class="media">
                   <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                   <div class="media-body">
-                    <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                    <p>Binus Malang 12345</p>
                   </div>
                 </li>
                 <li class="media">
@@ -25,7 +25,7 @@
                 </li>
                 <li class="media">
                   <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                  <div class="media-body"> <span><a href="#">flipmart@themesground.com</a></span> </div>
+                  <div class="media-body"> <span><a href="#">kulinerkita@mart.com</a></span> </div>
                 </li>
               </ul>
             </div>
@@ -52,42 +52,6 @@
           </div>
           <!-- /.col -->
           
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="module-heading">
-              <h4 class="module-title">Corporation</h4>
-            </div>
-            <!-- /.module-heading -->
-            
-            <div class="module-body">
-              <ul class='list-unstyled'>
-                <li class="first"><a title="Your Account" href="#">About us</a></li>
-                <li><a title="Information" href="#">Customer Service</a></li>
-                <li><a title="Addresses" href="#">Company</a></li>
-                <li><a title="Addresses" href="#">Investor Relations</a></li>
-                <li class="last"><a title="Orders History" href="#">Advanced Search</a></li>
-              </ul>
-            </div>
-            <!-- /.module-body --> 
-          </div>
-          <!-- /.col -->
-          
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="module-heading">
-              <h4 class="module-title">Why Choose Us</h4>
-            </div>
-            <!-- /.module-heading -->
-            
-            <div class="module-body">
-              <ul class='list-unstyled'>
-                <li class="first"><a href="#" title="About us">Shopping Guide</a></li>
-                <li><a href="#" title="Blog">Blog</a></li>
-                <li><a href="#" title="Company">Company</a></li>
-                <li><a href="#" title="Investor Relations">Investor Relations</a></li>
-                <li class=" last"><a href="contact-us.html" title="Suppliers">Contact Us</a></li>
-              </ul>
-            </div>
-            <!-- /.module-body --> 
-          </div>
         </div>
       </div>
     </div>

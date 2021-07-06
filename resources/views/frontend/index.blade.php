@@ -143,13 +143,52 @@ KulinerKita Market
                             </div>
                           </div>
                           <!-- /.product-image -->
-                          
+                          @php 
+                            $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                            $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                          @endphp
                           <div class="product-info text-left">
                             <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
                               @if(session()->get('language') == 'indo') {{$product->product_name_id}} 
                               @else {{$product->product_name_en}} @endif
                             </a></h3>
-                            <div class="rating rateit-small"></div>
+                            <div class="rating ">
+                                @if($avarage == 0)
+                              No Rating Yet 
+                              @elseif($avarage == 1 || $avarage < 2)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                              @elseif($avarage == 2 || $avarage < 3)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                              @elseif($avarage == 3 || $avarage < 4)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+
+                              @elseif($avarage == 4 || $avarage < 5)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                              @elseif($avarage == 5 || $avarage < 5)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                @endif
+                            </div>
+                            
                             <div class="description"></div>
                             @if ($product->discount_price == NULL)
                               <div class="product-price"> <span class="price"> Rp{{number_format($product ->selling_price, 2 )}}</span>  </div>
@@ -217,13 +256,51 @@ KulinerKita Market
                               </div>
                             </div>
                             <!-- /.product-image -->
-                            
+                            @php 
+                              $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                              $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                            @endphp
                             <div class="product-info text-left">
                               <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
                                 @if(session()->get('language') == 'indo') {{$product->product_name_id}} 
                                 @else {{$product->product_name_en}} @endif
                               </a></h3>
-                              <div class="rating rateit-small"></div>
+                              <div class="rating ">
+                                @if($avarage == 0)
+                              No Rating Yet 
+                              @elseif($avarage == 1 || $avarage < 2)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                              @elseif($avarage == 2 || $avarage < 3)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                              @elseif($avarage == 3 || $avarage < 4)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+
+                              @elseif($avarage == 4 || $avarage < 5)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                              @elseif($avarage == 5 || $avarage < 5)
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                @endif
+                            </div>
                               <div class="description"></div>
                               @if ($product->discount_price == NULL)
                                <div class="product-price"> <span class="price"> Rp{{number_format($product ->selling_price, 2 )}}</span>  </div>
@@ -304,13 +381,51 @@ KulinerKita Market
                   </div>
                 </div>
                 <!-- /.product-image -->
-                
+                @php 
+                      $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                      $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                @endphp
                 <div class="product-info text-left">
                   <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
                     @if(session()->get('language') == 'indo') {{$product->product_name_id}} 
                     @else {{$product->product_name_en}} @endif
                   </a></h3>
-                  <div class="rating rateit-small"></div>
+                  <div class="rating ">
+                    @if($avarage == 0)
+                  No Rating Yet 
+                  @elseif($avarage == 1 || $avarage < 2)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 2 || $avarage < 3)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 3 || $avarage < 4)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                  @elseif($avarage == 4 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 5 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    @endif
+                </div>
                   <div class="description"></div>
                   @if ($product->discount_price == NULL)
                     <div class="product-price"> <span class="price"> Rp{{number_format($product ->selling_price, 2 )}}</span>  </div>
@@ -371,13 +486,51 @@ KulinerKita Market
                   </div>
                 </div>
                 <!-- /.product-image -->
-                
+                @php 
+                  $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                  $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                @endphp
                 <div class="product-info text-left">
                   <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
                     @if(session()->get('language') == 'indo') {{$product->product_name_id}} 
                     @else {{$product->product_name_en}} @endif
                   </a></h3>
-                  <div class="rating rateit-small"></div>
+                  <div class="rating ">
+                    @if($avarage == 0)
+                  No Rating Yet 
+                  @elseif($avarage == 1 || $avarage < 2)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 2 || $avarage < 3)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 3 || $avarage < 4)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                  @elseif($avarage == 4 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 5 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    @endif
+                </div>
                   <div class="description"></div>
                   @if ($product->discount_price == NULL)
                     <div class="product-price"> <span class="price"> Rp{{number_format($product ->selling_price, 2 )}}</span>  </div>
@@ -438,13 +591,51 @@ KulinerKita Market
                   </div>
                 </div>
                 <!-- /.product-image -->
-                
+                @php 
+                  $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                  $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                @endphp
                 <div class="product-info text-left">
                   <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
                     @if(session()->get('language') == 'indo') {{$product->product_name_id}} 
                     @else {{$product->product_name_en}} @endif
                   </a></h3>
-                  <div class="rating rateit-small"></div>
+                  <div class="rating ">
+                    @if($avarage == 0)
+                  No Rating Yet 
+                  @elseif($avarage == 1 || $avarage < 2)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 2 || $avarage < 3)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 3 || $avarage < 4)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                  @elseif($avarage == 4 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 5 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    @endif
+                </div>
                   <div class="description"></div>
                   @if ($product->discount_price == NULL)
                     <div class="product-price"> <span class="price"> Rp{{number_format($product ->selling_price, 2 )}}</span>  </div>
@@ -505,13 +696,51 @@ KulinerKita Market
                   </div>
                 </div>
                 <!-- /.product-image -->
-                
+                @php 
+                  $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                  $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                @endphp
                 <div class="product-info text-left">
                   <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
                     @if(session()->get('language') == 'indo') {{$product->product_name_id}} 
                     @else {{$product->product_name_en}} @endif
                   </a></h3>
-                  <div class="rating rateit-small"></div>
+                  <div class="rating ">
+                    @if($avarage == 0)
+                  No Rating Yet 
+                  @elseif($avarage == 1 || $avarage < 2)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 2 || $avarage < 3)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 3 || $avarage < 4)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                  @elseif($avarage == 4 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  @elseif($avarage == 5 || $avarage < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    @endif
+                </div>
                   <div class="description"></div>
                   @if ($product->discount_price == NULL)
                     <div class="product-price"> <span class="price"> Rp{{number_format($product ->selling_price, 2 )}}</span>  </div>
@@ -592,3 +821,4 @@ KulinerKita Market
 </div>
 
 @endsection
+
